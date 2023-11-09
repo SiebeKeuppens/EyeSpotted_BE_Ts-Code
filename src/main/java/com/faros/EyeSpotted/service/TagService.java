@@ -14,7 +14,7 @@ public class TagService {
         this.tagRepository = tagRepository;
     }
 
-    List<Tag> getAllTags() {
+    public List<Tag> getAllTags() {
         return tagRepository.findAll();
     }
 }

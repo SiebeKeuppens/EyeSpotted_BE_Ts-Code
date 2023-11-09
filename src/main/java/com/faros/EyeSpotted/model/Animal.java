@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Set;
+
 @NoArgsConstructor
 @Setter
 @Getter
@@ -16,10 +18,18 @@ public class Animal {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "categoryid")
     private Category category;
 
     @Column(name = "imagedata")
     private byte[] imageData;
+
+    @ManyToMany
+    @JoinTable(
+            name = "animaltag",
+            joinColumns = @JoinColumn(name = "tagid"),
+            inverseJoinColumns = @JoinColumn(name = "animalid"))
+    private Set<Tag> tags;
+
 }

@@ -1,12 +1,13 @@
 package com.faros.EyeSpotted.repository;
 
-import com.faros.EyeSpotted.model.Tag;
+import com.faros.EyeSpotted.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface TagRepository extends JpaRepository<Tag,Long> {
-    public List<Tag> findAll();
+public interface CategoryRepository extends JpaRepository<Category,Long> {
+    Category getCategoryById(Long Id);
+    List<Category> findAll();
 }

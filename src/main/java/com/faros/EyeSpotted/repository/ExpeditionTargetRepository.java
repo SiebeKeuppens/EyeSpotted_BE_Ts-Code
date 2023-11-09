@@ -8,8 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ExpeditionRepository extends JpaRepository<Expedition,Long> {
-    Expedition getExpeditionById(Long Id);
-    List<Expedition> getExpeditionsByUserId(Long UserId);
-    List<Expedition> getExpeditionTargetsById(Long Id);
+public interface ExpeditionTargetRepository extends JpaRepository<Expeditiontarget,Long> {
+    List<Expeditiontarget> findAll();
 }
+

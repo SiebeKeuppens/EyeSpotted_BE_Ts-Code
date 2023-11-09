@@ -5,22 +5,22 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Set;
-
 @NoArgsConstructor
 @Setter
 @Getter
 @Entity
-public class Tag {
+public class Expeditiontarget {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @OneToOne
+    @JoinColumn(name = "animalid")
+    private Animal animal;
 
-    @ManyToMany(mappedBy = "tags")
-    private Set<Animal> animals;
+    @ManyToOne
+    @JoinColumn(name = "expeditionid")
+    private Expedition expedition;
+
 }
-
