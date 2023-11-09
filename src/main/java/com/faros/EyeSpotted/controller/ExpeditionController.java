@@ -1,12 +1,10 @@
 package com.faros.EyeSpotted.controller;
 
 import com.faros.EyeSpotted.model.Expedition;
-import com.faros.EyeSpotted.model.Tag;
+import com.faros.EyeSpotted.security.EyeSpottedSecurityContextHolder;
 import com.faros.EyeSpotted.service.ExpeditionService;
-import com.faros.EyeSpotted.service.TagService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -21,5 +19,13 @@ public class ExpeditionController {
     @GetMapping()
     public List<Expedition> getAllExpeditions() {
         return expeditionService.getAllExpeditions();
+    }
+
+    @PostMapping()
+    public ModelAndView AddExpedition(@RequestBody Expedition expedition) {
+        ModelAndView response = new ModelAndView("redirect:/expedition/");
+        expedition.setUser(EyeSpottedSecurityContextHolder.getUser());
+        expeditionService.AddExpedition(expedition);
+        return response;
     }
 }

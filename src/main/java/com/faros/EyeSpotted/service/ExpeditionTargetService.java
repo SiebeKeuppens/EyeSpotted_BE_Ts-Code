@@ -12,7 +12,7 @@ public class ExpeditionTargetService {
     private ExpeditionTargetRepository expeditionTargetRepository = null;
 
 
-    public ExpeditionTargetService(ExpeditionRepository expeditionRepository) {
+    public ExpeditionTargetService(ExpeditionTargetRepository expeditionTargetRepository) {
         this.expeditionTargetRepository = expeditionTargetRepository;
     }
 

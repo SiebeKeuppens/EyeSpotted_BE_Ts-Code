@@ -21,6 +21,7 @@ public class AnimalController {
 
     @GetMapping()
     public List<Animal> getALlAnimals() {
+
         return animalService.getAllAnimals();
     }
 }
