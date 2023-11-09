@@ -5,14 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.math.BigInteger;
-import java.util.Date;
-
 @NoArgsConstructor
 @Setter
 @Getter
 @Entity
-public class Expedition {
+public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -20,14 +18,4 @@ public class Expedition {
 
     @Column(name = "name")
     private String name;
-
-    @Column(name = "startdate")
-    private Date startDate;
-
-    @Column(name = "enddate")
-    private Date endDate;
-
-    @ManyToOne
-    @JoinColumn(name = "userid")
-    private  User user;
 }
